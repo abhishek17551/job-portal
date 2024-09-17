@@ -9,8 +9,10 @@ const ProtectedRoutes = ({children}) => {
     if(isLoaded && !isSignedIn && isSignedIn!==undefined){
         return <Navigate to='/?sign-in=true' />
     }
+
+    //Check role for onboarding
   return (
-    <div>protected-routes</div>
+    children
   )
 }
 
