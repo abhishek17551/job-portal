@@ -11,6 +11,7 @@ const ProtectedRoutes = ({children}) => {
     }
 
     //Check role for onboarding
+    if(user !== undefined && !user?.unsafeMetadata?.role && pathname !== 'onboarding') return <Navigate to='/onboarding'/>
   return (
     children
   )
