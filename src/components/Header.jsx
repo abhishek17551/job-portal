@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
 import { Button } from './ui/button'
-import { SignedIn, SignedOut, SignIn, SignInButton, UserButton } from '@clerk/clerk-react'
+import { SignedIn, SignedOut, SignIn, SignInButton, UserButton, useUser } from '@clerk/clerk-react'
 import { BriefcaseBusiness, Heart, PenBox } from 'lucide-react'
 
 
 const Header = () => {
     const [showSignIn,setShowSignIn] = useState(false)
     const [search,setSearch] = useSearchParams()
+    const {user} = useUser()
+
+    //console.log(user)
 
     const handleOverlayClick = (e) => {
         if(e.target === e.currentTarget) {
@@ -31,17 +34,23 @@ const Header = () => {
 
             <div className="flex gap-8">
                 <SignedOut>
-                    <Button variant="outline" onClick={() => setShowSignIn(true)} >
+                    <Button variant="outline" onClick={() => {
+                      setShowSignIn(true)                  
+                    }} >
                       Login
                     </Button>
                 </SignedOut>
                 <SignedIn>
-                  <Link to='/post-job'>
-                    <Button variant="destructive" className="rounded-full">
-                        <PenBox size={20} className="mr-2" />
-                        Post a Job
-                    </Button>
-                  </Link>
+                  {
+                    user?.unsafeMetadata?.role === 'recruiter' && (
+                    <Link to='/post-job'>
+                      <Button variant="destructive" className="rounded-full">
+                          <PenBox size={20} className="mr-2" />
+                          Post a Job
+                      </Button>
+                    </Link>
+                    )
+                  }
 
                   <UserButton
                     appearance={{

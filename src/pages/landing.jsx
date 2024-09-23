@@ -6,10 +6,13 @@ import { Link } from "react-router-dom";
 import companies from "../data/companies.json";
 import faqs from "../data/faq.json";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { useUser } from "@clerk/clerk-react";
+
 
 const Landing = () => {
+
   return (
-    <main className="flex flex-col gap-10 sm:gap-20 py-10 sm:py-20 scroll-auto">
+    <main className="flex flex-col gap-10 sm:gap-20 py-10 sm:py-20 ">
       <section className="text-center ">
         <h1 className="flex flex-col items-center justify-center gradient-title font-extrabold text-4xl sm:text-6xl lg:text-8xl tracking-tighter py-4">
           Find Your Dream Job <span className="flex items-center gap-2 sm:gap-6">and get Hired!</span>

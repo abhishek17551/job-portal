@@ -10,7 +10,8 @@ import SavedJobs from './pages/saved-jobs'
 import Job from './pages/job'
 import { ThemeProvider } from './components/theme-provider'
 import ProtectedRoutes from './components/protected-routes'
-import Onboarding from './pages/onboarding'
+import { Onboarding } from './pages/onboarding'
+
 
 function App() {
   const router = createBrowserRouter([
