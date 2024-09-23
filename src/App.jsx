@@ -3,7 +3,6 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import './App.css'
 import AppLayout from './layout/app-layout'
 import Landing from './pages/landing'
-import Onboarding from './pages/onboarding'
 import JobListing from './pages/job-listing'
 import PostJob from './pages/post-job'
 import MyJobs from './pages/my-jobs'
@@ -11,6 +10,7 @@ import SavedJobs from './pages/saved-jobs'
 import Job from './pages/job'
 import { ThemeProvider } from './components/theme-provider'
 import ProtectedRoutes from './components/protected-routes'
+import Onboarding from './pages/onboarding'
 
 function App() {
   const router = createBrowserRouter([
@@ -25,7 +25,7 @@ function App() {
           path: "/onboarding",
           element: (
             <ProtectedRoutes>
-              <Onboarding />
+              <Onboarding/>
             </ProtectedRoutes>            
           ),
         },
@@ -50,7 +50,7 @@ function App() {
           element: (
             <ProtectedRoutes>
               <MyJobs />
-              </ProtectedRoutes>
+            </ProtectedRoutes>
           ),
         },
         {
