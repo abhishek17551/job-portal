@@ -11,6 +11,7 @@ import Job from './pages/job'
 import { ThemeProvider } from './components/theme-provider'
 import ProtectedRoutes from './components/protected-routes'
 import { Onboarding } from './pages/onboarding'
+import JobPage from './pages/job'
 
 
 function App() {
@@ -66,7 +67,7 @@ function App() {
           path: "/job/:id",
           element: (
             <ProtectedRoutes>
-              <Job />
+              <JobPage />
             </ProtectedRoutes>
           ),
         },
