@@ -42,7 +42,7 @@ const JobListing = () => {
               dataJobs?.length ? (
                 dataJobs.map((job) => {
                   return (
-                  <JobCard key={job.id} job={job}/>
+                  <JobCard key={job.id} job={job} savedInit={job.saved?.length > 0}/>
                   )
               
                 })
