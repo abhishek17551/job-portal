@@ -1,3 +1,4 @@
+import { getCompanies } from '@/APIs/companies-api'
 import { getJobs } from '@/APIs/job-api'
 import JobCard from '@/components/JobCard'
 import useFetch from '@/hooks/useFetch'
@@ -13,6 +14,11 @@ const JobListing = () => {
   const [companyID,setCompanyID] = useState('')
 
   const {
+    fn:fnCompanies,
+    data:dataCompanies,
+  } = useFetch(getCompanies)
+
+  const {
     fn:fnJobs,
     data:dataJobs,
     loading:loadingJobs
@@ -21,6 +27,10 @@ const JobListing = () => {
   useEffect(() => {
     if(isLoaded) fnJobs()
   },[isLoaded,location,searchQuery,companyID])
+
+  useEffect(() => {
+    if(isLoaded) fnCompanies()
+  },[isLoaded])
 
   if (!isLoaded) {
     return <BarLoader className="mb-4" width={"100%"} color="#36d7b7" />;
